@@ -5,5 +5,5 @@ const port = 3000;
 app.use("/", express.static("public"));
 
 app.listen(port, () => {
-  console.log(`App running on port: http://localhost:${port}`);
+  console.log(`Local: http://localhost:${port}`);
 });

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="output.css" />
+    <title>Clarity</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar bg-base-100 shadow-sm justify-between md:px-20">
+      <div>
+        <a class="btn btn-ghost text-xl px-2">Clarity</a>
+      </div>
+      <div class="flex sm:2/5 md:w-2/5">
+        <input
+          type="text"
+          placeholder="Search"
+          class="input input-bordered w-24 sm:w-full text-center"
+        />
+      </div>
+      <div>L/D toggle</div>
+    </div>
+    <!-- MAIN CONTENT -->
+    <main class="w-screen h-screen flex flex-row">
+      <!-- LEFT SIDE -->
+      <div class="bg-base-200 p-2 shrink w-2/5 max-w-56 lg:max-w-80">
+        <h1 class="px-4 py-2 text-2xl text-start">All Notes</h1>
+        <ul class="menu w-full">
+          <li><a>Item 1</a></li>
+          <li><a class="menu-active">Item 2</a></li>
+          <li><a>Item 3</a></li>
+        </ul>
+      </div>
+      <!-- RIGHT SIDE -->
+      <div class="w-screen h-screen bg-base-100 p-2">NOTES HERE</div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

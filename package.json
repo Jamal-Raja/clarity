@@ -1,0 +1,31 @@
+{
+  "name": "clarity",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devStart": "nodemon server.js",
+    "css:build": "npx @tailwindcss/cli -i public/input.css -o public/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jamal-Raja/clarity.git"
+  },
+  "keywords": [],
+  "author": "Jamal Raja",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jamal-Raja/clarity/issues"
+  },
+  "homepage": "https://github.com/Jamal-Raja/clarity#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.16",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10",
+    "tailwindcss": "^4.1.16"
+  },
+  "devDependencies": {
+    "daisyui": "^5.3.10"
+  }
+}

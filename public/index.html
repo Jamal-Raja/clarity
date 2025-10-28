@@ -8,7 +8,9 @@
   </head>
   <body>
     <!-- Navbar -->
-    <div class="navbar bg-base-100 shadow-sm justify-between md:px-20">
+    <div
+      class="navbar bg-base-100 shadow-sm justify-between md:px-20 border-b-[0.5px] border-secondary-content"
+    >
       <div>
         <a class="btn btn-ghost text-xl px-2">Clarity</a>
       </div>
@@ -33,7 +35,14 @@
         </ul>
       </div>
       <!-- RIGHT SIDE -->
-      <div class="w-screen h-screen bg-base-100 p-2">NOTES HERE</div>
+      <div class="w-screen h-screen bg-base-100 p-2">
+        <textarea
+          name="note"
+          id="note"
+          class="h-full w-full p-4 pt-3.5 caret-pink-400"
+          placeholder="Start note here"
+        ></textarea>
+      </div>
     </main>
 
     <script src="script.js"></script>

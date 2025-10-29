@@ -1,4 +1,27 @@
 [
-  { "id": 1, "title": "First Note", "content": "I Love Nature <3" },
-  { "id": 2, "title": "Second Note", "content": "We Love Hiking xD" }
+  {
+    "id": 1761754839103,
+    "title": "First Note",
+    "content": "I love nature 🌿"
+  },
+  {
+    "id": 1761754844591,
+    "title": "Second Note",
+    "content": "We love hiking 🥾"
+  },
+  {
+    "id": 1761754847600,
+    "title": "Third Note",
+    "content": "Planning our next adventure!"
+  },
+  {
+    "id": 1761754851022,
+    "title": "Fourth Note",
+    "content": "Captured some amazing sunset photos 🌅"
+  },
+  {
+    "id": 1761754854783,
+    "title": "Fifth Note",
+    "content": "Remember to bring extra water next time 💧"
+  }
 ]

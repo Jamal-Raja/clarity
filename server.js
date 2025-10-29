@@ -1,5 +1,4 @@
 const express = require("express");
-const { title } = require("process");
 const fs = require("fs").promises;
 
 const app = express();
@@ -26,12 +25,15 @@ app.get("/notes", async (req, res) => {
     res.status(500).json({ error: "Failed to read notes" });
   }
 });
-// create new note
+// Create new note
 app.post("/notes", (req, res) => {
   const { title, content } = req.body; // Destructure req
-  console.log(Date.now());
   res.json({ message: "Note received!", note: req.body });
 });
+// Update a note
+app.put("/notes", (req, res) => {});
+// Delete a note
+app.delete("/notes", (req, res) => {});
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);

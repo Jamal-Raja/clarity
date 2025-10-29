@@ -1,9 +1,38 @@
 const express = require("express");
-const app = express();
-const port = 3000;
+const { title } = require("process");
+const fs = require("fs").promises;
 
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+async function readNotes() {
+  const data = await fs.readFile("./allData.json", "utf8");
+  return JSON.parse(data);
+}
+
+readNotes();
+// ============ MIDDLEWARE ============
+app.use(express.json());
 app.use("/", express.static("public"));
 
-app.listen(port, () => {
-  console.log(`Local: http://localhost:${port}`);
+// ============ ROUTES ============
+// Get all notes
+app.get("/notes", async (req, res) => {
+  try {
+    const notes = await readNotes();
+    res.json(notes);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to read notes" });
+  }
+});
+// create new note
+app.post("/notes", (req, res) => {
+  const { title, content } = req.body; // Destructure req
+  console.log(Date.now());
+  res.json({ message: "Note received!", note: req.body });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
 });

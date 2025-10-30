@@ -8,18 +8,33 @@ async function loadNotes() {
 
     const ulEl = document.getElementById("notesUl");
     ulEl.innerHTML = notes
-      .map(
-        (note) => `<li><a onclick=loadNote(${note.id}) >${note.title}</a></li>`
-      )
+      .map((note) => `<li><a id=${note.id} >${note.title}</a></li>`)
       .join("");
   } catch (err) {
     console.error(err);
   }
 }
-// Load notes on app open
+// Initial Render of all notes
 loadNotes();
+
 // Load individual note into editor
-async function loadNote() {}
+async function loadNote(noteId) {
+  try {
+    const res = await fetch(`${URL}/notes`, { method: "GET" });
+    if (!res.ok) {
+      throw new Error();
+    }
+    const allNotes = await res.json();
+    for (note of allNotes) {
+      if (note.id == noteId) {
+        const textAreaEl = document.getElementById("textArea");
+        textAreaEl.innerText = note.content;
+      }
+    }
+  } catch (err) {
+    console.error(err);
+  }
+}
 
 // Create new note via post req
 async function createNewNote() {
@@ -41,3 +56,6 @@ async function createNewNote() {
 }
 
 document.getElementById("composeIcon").addEventListener("click", createNewNote);
+document.getElementById("notesUl").addEventListener("click", (e) => {
+  loadNote(e.target.id);
+});

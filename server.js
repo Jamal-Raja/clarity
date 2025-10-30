@@ -36,7 +36,7 @@ app.get("/notes", async (req, res) => {
 app.post("/notes", async (req, res) => {
   try {
     res.json({ message: "Note received!", note: req.body });
-    createNewNote(req.body);
+    // createNewNote(req.body); // Commendted out to stop creating unnecsary notes
   } catch (err) {
     console.error(err);
   }

@@ -27,7 +27,6 @@ async function loadNotes() {
 }
 // Initial Render of all notes
 loadNotes();
-
 // Load individual note into editor
 async function loadNote(noteID) {
   try {
@@ -45,7 +44,6 @@ async function loadNote(noteID) {
     console.error(err);
   }
 }
-
 // Create new note via post req
 async function createNewNote() {
   try {
@@ -58,7 +56,9 @@ async function createNewNote() {
         content: "",
       }),
     });
+    const data = await res.json();
     loadNotes();
+    loadNote(data["note"].id);
     if (!res.ok) throw new Error("Failed to fetch");
   } catch (err) {
     console.error(err);

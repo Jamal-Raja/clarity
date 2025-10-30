@@ -55,8 +55,8 @@ app.post("/notes", async (req, res) => {
       res.json({ message: "Error Creating Note" });
       throw new Error();
     }
-    res.json({ message: "Note received!", note: req.body });
     createNewNote(req.body);
+    res.json({ message: `Note Created!`, note: req.body, id: req.id });
   } catch (err) {
     console.error(err);
   }
@@ -96,3 +96,14 @@ app.delete("/notes", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
+
+// REMAINING TASKS TO COMPLETE:
+//
+// Convert to using dynamic routes
+// Createing new note loads the note too
+// Add date created/last modified
+// Light/dark mode btn
+// Hover Btn
+// Styling
+// Search functionality
+// Separate Scrolls

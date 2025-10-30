@@ -1,5 +1,10 @@
 [
   {
+    "id": 1761861591433,
+    "title": "REMAINING TASKS TO COMPLETE:",
+    "content": "\nStyling \nLight/dark mode btn\nConvert to using dynamic routes\nHover Bin\nAdd date created/last modified \nSearch functionality\nSeparate Scrolls\n\n"
+  },
+  {
     "id": 1761754839103,
     "title": "I love nature 🌿",
     "content": "[CONTENT_IS_HERE!]\n"

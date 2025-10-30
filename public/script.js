@@ -9,7 +9,17 @@ async function loadNotes() {
 
     const ulEl = document.getElementById("notesUl");
     ulEl.innerHTML = notes
-      .map((note) => `<li><a id=${note.id} >${note.title}</a></li>`)
+      .map(
+        (note) => `<li>
+                  <a id=${note.id} class="flex justify-between gap-0">${note.title} 
+                  <button>
+                    <svg class="min-w-4 min-h-4 w-4 h-4 fill-current hover:fill-red-500 animate-rotate-upside-down transition-transform duration-300 hover:rotate-180 active:scale-200" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z"></path>
+                    </svg>
+                  </button>
+                </a>                
+              </li>`
+      )
       .join("");
   } catch (err) {
     console.error(err);
@@ -29,8 +39,6 @@ async function loadNote(noteID) {
     for (note of allNotes) {
       if (note.id == noteID) {
         textAreaEl.value = `${note.title}\n${note.content}`;
-
-        // console.log();
       }
     }
   } catch (err) {
@@ -47,7 +55,7 @@ async function createNewNote() {
       body: JSON.stringify({
         id: Date.now(),
         title: "Untitled Note",
-        content: "NEW NOTE CONTENT",
+        content: "",
       }),
     });
     loadNotes();
@@ -79,10 +87,42 @@ async function updateNote(noteID, noteTitle, noteContent) {
   }
 }
 
+// Delete note
+async function deleteNote(noteID) {
+  try {
+    const numericID = Number(noteID);
+    if (isNaN(numericID)) {
+      throw new Error("Invalid note ID. Must be a number");
+    }
+    const res = await fetch(`${URL}/notes`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: numericID,
+      }),
+    });
+    loadNotes();
+    if (!res.ok) throw new Error("Failed to fetch");
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 document.getElementById("composeIcon").addEventListener("click", createNewNote);
 document.getElementById("notesUl").addEventListener("click", (e) => {
-  loadNote(e.target.id);
-  textAreaEl.setAttribute("loadedNote", e.target.id);
+  const note = e.target.closest("a");
+  const bin = e.target.closest("svg");
+  if (note) {
+    loadNote(e.target.id);
+    textAreaEl.setAttribute("loadedNote", e.target.id);
+  }
+  if (bin) {
+    const confirm = window.confirm(
+      "Are you sure you want to delete this note?"
+    );
+    if (!confirm) return;
+    deleteNote(e.target.closest("a").id);
+  }
 });
 textAreaEl.addEventListener("input", () => {
   const title = textAreaEl.value.split("\n")[0];

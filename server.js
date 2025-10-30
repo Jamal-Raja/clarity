@@ -16,14 +16,20 @@ async function createNewNote(noteObj) {
   await fs.writeFile("./allData.json", JSON.stringify(allNotes, null, 2));
 }
 
-async function updateNote(nodeID, updatedNote) {
+async function updateNote(noteID, updatedNote) {
   const allNotes = await readNotes();
   const updatedNotes = allNotes.map((note) => {
-    if (note.id === nodeID) {
+    if (note.id === noteID) {
       return { ...updatedNote };
     }
     return note;
   });
+  await fs.writeFile("./allData.json", JSON.stringify(updatedNotes, null, 2));
+}
+
+async function deleteNote(noteID) {
+  const allNotes = await readNotes();
+  const updatedNotes = allNotes.filter((note) => note.id !== noteID);
   await fs.writeFile("./allData.json", JSON.stringify(updatedNotes, null, 2));
 }
 
@@ -50,12 +56,11 @@ app.post("/notes", async (req, res) => {
       throw new Error();
     }
     res.json({ message: "Note received!", note: req.body });
-    // createNewNote(req.body); // <-- Commendted out to stop creating unnecsary notes
+    createNewNote(req.body);
   } catch (err) {
     console.error(err);
   }
 });
-
 // Update a note
 app.put("/notes", async (req, res) => {
   try {
@@ -75,9 +80,18 @@ app.put("/notes", async (req, res) => {
     console.error(err);
   }
 });
-
 // Delete a note
-app.delete("/notes", (req, res) => {});
+app.delete("/notes", async (req, res) => {
+  try {
+    if (!req.body) {
+      res.status(400).json({ message: "Error: Expected {id}" });
+    }
+    deleteNote(req.body.id);
+    res.json({ message: "Note Deleted!", note: req.body });
+  } catch (err) {
+    console.error(err);
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);

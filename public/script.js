@@ -28,7 +28,9 @@ async function loadNote(noteID) {
     const allNotes = await res.json();
     for (note of allNotes) {
       if (note.id == noteID) {
-        textAreaEl.innerText = note.content;
+        textAreaEl.value = `${note.title}\n${note.content}`;
+
+        // console.log();
       }
     }
   } catch (err) {

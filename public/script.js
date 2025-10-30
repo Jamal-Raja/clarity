@@ -122,6 +122,7 @@ document.getElementById("notesUl").addEventListener("click", (e) => {
     );
     if (!confirm) return;
     deleteNote(e.target.closest("a").id);
+    textAreaEl.value = "";
   }
 });
 textAreaEl.addEventListener("input", () => {

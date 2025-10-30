@@ -6,7 +6,14 @@ const PORT = process.env.PORT || 3000;
 
 async function readNotes() {
   const data = await fs.readFile("./allData.json", "utf8");
+  if (!data) return [];
   return JSON.parse(data);
+}
+
+async function createNewNote(obj) {
+  const allNotes = await readNotes();
+  allNotes.unshift(obj);
+  await fs.writeFile("./allData.json", JSON.stringify(allNotes, null, 2));
 }
 
 readNotes();
@@ -18,18 +25,23 @@ app.use("/", express.static("public"));
 // Get all notes
 app.get("/notes", async (req, res) => {
   try {
-    const notes = await readNotes();
-    res.json(notes);
+    const allNotes = await readNotes();
+    res.json(allNotes);
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Failed to read notes" });
   }
 });
 // Create new note
-app.post("/notes", (req, res) => {
-  const { title, content } = req.body; // Destructure req
-  res.json({ message: "Note received!", note: req.body });
+app.post("/notes", async (req, res) => {
+  try {
+    res.json({ message: "Note received!", note: req.body });
+    createNewNote(req.body);
+  } catch (err) {
+    console.error(err);
+  }
 });
+
 // Update a note
 app.put("/notes", (req, res) => {});
 // Delete a note

@@ -1,4 +1,5 @@
 const URL = "http://localhost:3000";
+const textAreaEl = document.getElementById("textArea");
 // Load all notes
 async function loadNotes() {
   try {
@@ -18,7 +19,7 @@ async function loadNotes() {
 loadNotes();
 
 // Load individual note into editor
-async function loadNote(noteId) {
+async function loadNote(noteID) {
   try {
     const res = await fetch(`${URL}/notes`, { method: "GET" });
     if (!res.ok) {
@@ -26,8 +27,7 @@ async function loadNote(noteId) {
     }
     const allNotes = await res.json();
     for (note of allNotes) {
-      if (note.id == noteId) {
-        const textAreaEl = document.getElementById("textArea");
+      if (note.id == noteID) {
         textAreaEl.innerText = note.content;
       }
     }
@@ -54,8 +54,38 @@ async function createNewNote() {
     console.error(err);
   }
 }
+// Update note
+async function updateNote(noteID, noteTitle, noteContent) {
+  try {
+    const numericID = Number(noteID);
+    if (isNaN(numericID)) {
+      throw new Error("Invalid note ID. Must be a number");
+    }
+    const res = await fetch(`${URL}/notes`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: numericID,
+        title: noteTitle,
+        content: noteContent,
+      }),
+    });
+    loadNotes();
+    if (!res.ok) throw new Error("Failed to fetch");
+  } catch (err) {
+    console.error(err);
+  }
+}
 
 document.getElementById("composeIcon").addEventListener("click", createNewNote);
 document.getElementById("notesUl").addEventListener("click", (e) => {
   loadNote(e.target.id);
+  textAreaEl.setAttribute("loadedNote", e.target.id);
+});
+textAreaEl.addEventListener("input", () => {
+  const title = textAreaEl.value.split("\n")[0];
+  const content = textAreaEl.value.split("\n").slice(1).join("\n");
+  const id = textAreaEl.getAttribute("loadedNote");
+
+  updateNote(id, title, content);
 });

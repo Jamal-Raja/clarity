@@ -121,14 +121,20 @@ document.getElementById("notesUl").addEventListener("click", (e) => {
     textAreaEl.value = "";
   }
 });
-// Upon textarea input, input is sent as a put request to update allData.json
+// Debounce textarea input to prevent rapid PUT requests to allData.json
+let Timer;
+
 textAreaEl.addEventListener("input", () => {
-  const note = {
-    title: textAreaEl.value.split("\n")[0],
-    content: textAreaEl.value.split("\n").slice(1).join("\n"),
-    id: textAreaEl.getAttribute("loadedNote"),
-  };
-  updateNote(note);
+  clearTimeout(Timer); // Reset timer on each keystroke
+
+  Timer = setTimeout(() => {
+    const note = {
+      title: textAreaEl.value.split("\n")[0],
+      content: textAreaEl.value.split("\n").slice(1).join("\n"),
+      id: textAreaEl.getAttribute("loadedNote"),
+    };
+    updateNote(note); // Send update after typing stops
+  }, 200);
 });
 
 // Theme save

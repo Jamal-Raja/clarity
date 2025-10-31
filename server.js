@@ -96,9 +96,9 @@ app.listen(PORT, () => {
 
 // REMAINING TASKS TO COMPLETE:
 //
-// Convert to using dynamic routes - IN PROGRESS
-// Add date created/last modified
+// Fix refresh bug - IN PROGRESS
 // New note created when pressing blank note|| Auto load last viewed note so it is never blank
+// Add date created/last modified
 // Search functionality
 // Separate Scrolls
 // Hover Bin Btn (shud hide natrually and appear on hover only)

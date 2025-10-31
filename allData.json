@@ -1,42 +1,37 @@
 [
   {
-    "title": "",
-    "content": "",
-    "id": 1761934473019
-  },
-  {
-    "title": "readme.me ",
-    "content": "console.log(\"kys\")",
+    "title": "README.md 📘",
+    "content": "# Welcome to Clarity ✨\n\nClarity is a clean, distraction-free note app built with **Express**, **Tailwind CSS v4**, and **DaisyUI**. It helps you capture ideas instantly — whether you’re coding, journalling, or planning your next adventure.\n\n## 🚀 Features\n- 🧠 Real-time auto-save while you type\n- 🔍 Search and filter through notes (coming soon)\n- 🧹 Delete notes with one click (hover bin icon)\n- 🎨 Personalise your theme with built-in DaisyUI options\n- 📅 Notes store creation and last modified timestamps (planned)\n\n## 🧩 Tech Stack\n- **Frontend:** TailwindCSS v4, DaisyUI, JavaScript (vanilla)\n- **Backend:** Node.js (Express 5)\n- **Storage:** JSON-based local persistence\n\n## 💡 Usage\n1. Click **+ Compose** to create a new note.\n2. Start typing — your work auto-saves.\n3. Click a note on the left to load it instantly.\n\n> Tip: Keep your first line short — it becomes your note’s title automatically!\n\n---\n\nMade with <3 by **Jamal Raja**",
     "id": 1761931156447
   },
   {
-    "title": "REMAINING TASKS TO COMPLETE:",
-    "content": "\nSearch functionality - IN PROGRESS\nStyling \nHover Bin\nAdd date created/last modified \nSeparate Scrolls\n",
-    "id": 1761861591433
+    "id": 1761861591433,
+    "title": "🛠️ Remaining Tasks",
+    "content": "- [x] Build note CRUD API\n- [x] Add auto-save debounce logic\n- [x] Add theme switcher with localStorage\n- [ ] Add search functionality\n- [ ] Improve hover delete (bin icon)\n- [ ] Display 'Created' and 'Last Modified' timestamps\n- [ ] Independent scroll for sidebar and editor"
   },
   {
     "id": 1761754839103,
     "title": "I love nature 🌿",
-    "content": "[CONTENT_IS_HERE!]\n"
+    "content": "Time in nature resets everything. The sound of wind through the trees, the slow rhythm of walking — it’s mindfulness without effort.\n\n> Next hike: explore the Snowdonia trails this weekend."
   },
   {
+    "id": 1761754844591,
     "title": "We love hiking 🥾",
-    "content": "[CONTENT_IS_HERE]\nlol",
-    "id": 1761754844591
+    "content": "Trail snacks, laughter, and muddy boots — that’s what memories are made of.\n\nPlanning a weekend route from **Ambleside** to **Langdale**. Don’t forget the camera!"
   },
   {
     "id": 1761754847600,
     "title": "Planning our next adventure!",
-    "content": "[CONTENT_IS_HERE!]"
+    "content": "Possible destinations:\n- Peak District 🏞️\n- Scottish Highlands 🏔️\n- Brecon Beacons 🌄\n\nCheck trail maps, accommodation, and local cafés."
   },
   {
+    "id": 1761754851022,
     "title": "Captured some amazing sunset photos 🌅",
-    "content": "[CONTENT_IS_HERE]",
-    "id": 1761754851022
+    "content": "The sky was painted in orange and lilac tones. Perfect golden hour for wide shots.\n\n> Reminder: Edit and upload to the shared Google Drive folder."
   },
   {
     "id": 1761754854783,
-    "title": "Remember to bring extra water next time 💧",
-    "content": "[CONTENT_IS_HERE]\n"
+    "title": "Bring extra water next time 💧",
+    "content": "Lesson learned — two bottles aren’t enough on a 12km hike. Add this to the gear checklist for next time!"
   }
 ]

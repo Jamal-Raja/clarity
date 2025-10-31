@@ -96,9 +96,6 @@ app.listen(PORT, () => {
 });
 
 // REMAINING TASKS TO COMPLETE:
-//
-// Search functionality
-// Add date created/last modified
+// Styling
 // Separate Scrolls
 // Hover Bin Btn (shud hide natrually and appear on hover only)
-// Styling

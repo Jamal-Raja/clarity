@@ -2,3 +2,7 @@
 @plugin "daisyui" {
   themes: all;
 }
+
+@theme {
+  --font-fira: "Fira Code", monospace;
+}

@@ -134,3 +134,17 @@ textAreaEl.addEventListener("input", () => {
 
   updateNote(id, title, content);
 });
+
+// Theme save
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme) {
+  document.documentElement.setAttribute("data-theme", savedTheme);
+}
+
+document.querySelectorAll(".theme-controller").forEach((input) => {
+  input.addEventListener("change", (e) => {
+    const newTheme = e.target.value;
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  });
+});

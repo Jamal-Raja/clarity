@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dim">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,7 +21,73 @@
           class="input input-bordered w-24 sm:w-full text-center"
         />
       </div>
-      <div>L/D toggle</div>
+      <!-- Theme toggle -->
+      <div class="dropdown">
+        <div tabindex="0" role="button" class="btn m-1">
+          Theme
+          <svg
+            width="12px"
+            height="12px"
+            class="inline-block h-2 w-2 fill-current opacity-60"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 2048 2048"
+          >
+            <path
+              d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"
+            ></path>
+          </svg>
+        </div>
+        <ul
+          tabindex="-1"
+          class="dropdown-content bg-base-300 rounded-box z-1 min-w-36 p-2 shadow-2xl"
+        >
+          <li>
+            <input
+              type="radio"
+              name="theme-dropdown"
+              class="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start cursor-pointer hover:scale-105 active:scale-95"
+              aria-label="Default"
+              value="default"
+            />
+          </li>
+          <li>
+            <input
+              type="radio"
+              name="theme-dropdown"
+              class="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start cursor-pointer hover:scale-105 active:scale-95"
+              aria-label="Retro"
+              value="retro"
+            />
+          </li>
+          <li>
+            <input
+              type="radio"
+              name="theme-dropdown"
+              class="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start cursor-pointer hover:scale-105 active:scale-95"
+              aria-label="Cyberpunk"
+              value="cyberpunk"
+            />
+          </li>
+          <li>
+            <input
+              type="radio"
+              name="theme-dropdown"
+              class="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start cursor-pointer hover:scale-105 active:scale-95"
+              aria-label="Valentine"
+              value="valentine"
+            />
+          </li>
+          <li>
+            <input
+              type="radio"
+              name="theme-dropdown"
+              class="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start cursor-pointer hover:scale-105 active:scale-95"
+              aria-label="Aqua"
+              value="aqua"
+            />
+          </li>
+        </ul>
+      </div>
     </div>
     <!-- MAIN CONTENT -->
     <main class="w-screen h-screen flex flex-row">

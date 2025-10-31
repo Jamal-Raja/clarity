@@ -99,11 +99,10 @@ app.listen(PORT, () => {
 
 // REMAINING TASKS TO COMPLETE:
 //
-// Convert to using dynamic routes
-// Createing new note loads the note too
-// Add date created/last modified
 // Light/dark mode btn
+// Convert to using dynamic routes
+// Add date created/last modified
 // Hover Btn
-// Styling
 // Search functionality
 // Separate Scrolls
+// Styling

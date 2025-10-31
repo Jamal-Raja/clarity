@@ -1,5 +1,6 @@
 const URL = "http://localhost:3000";
 const textAreaEl = document.getElementById("textArea");
+const themeToggle = document.getElementById("themeToggle");
 // Load all notes
 async function loadNotes() {
   try {
@@ -116,6 +117,7 @@ document.getElementById("notesUl").addEventListener("click", (e) => {
     loadNote(e.target.id);
     textAreaEl.setAttribute("loadedNote", e.target.id);
   }
+  // Delete note
   if (bin) {
     const confirm = window.confirm(
       "Are you sure you want to delete this note?"

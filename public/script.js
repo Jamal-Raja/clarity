@@ -59,6 +59,7 @@ async function createNewNote() {
     const data = await res.json();
     loadNotes();
     loadNote(data["note"].id);
+    textAreaEl.setAttribute("loadedNote", data["note"].id);
     if (!res.ok) throw new Error("Failed to fetch");
   } catch (err) {
     console.error(err);
@@ -121,7 +122,6 @@ document.getElementById("notesUl").addEventListener("click", (e) => {
     loadNote(e.target.id);
     textAreaEl.setAttribute("loadedNote", e.target.id);
     localStorage.setItem("curNoteID", e.target.id);
-    console.log(localStorage.curNoteID);
   }
   // Delete note
   if (bin) {

@@ -99,10 +99,10 @@ app.listen(PORT, () => {
 
 // REMAINING TASKS TO COMPLETE:
 //
-// Light/dark mode btn
-// Convert to using dynamic routes
+// Convert to using dynamic routes - IN PROGRESS
 // Add date created/last modified
-// Hover Btn
+// New note created when pressing blank note|| Auto load last viewed note so it is never blank
 // Search functionality
 // Separate Scrolls
+// Hover Bin Btn (shud hide natrually and appear on hover only)
 // Styling

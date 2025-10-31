@@ -104,12 +104,24 @@ async function deleteNote(noteID) {
 }
 
 document.getElementById("composeIcon").addEventListener("click", createNewNote);
+
+const currentNoteID = localStorage.getItem("curNoteID");
+if (!currentNoteID) {
+  (async () => {
+    const res = await fetch(`${URL}/notes`);
+    const notes = await res.json();
+    loadNote(notes[0].id);
+  })();
+} else loadNote(currentNoteID);
+
 document.getElementById("notesUl").addEventListener("click", (e) => {
   const note = e.target.closest("a");
   const bin = e.target.closest("svg");
   if (note) {
     loadNote(e.target.id);
     textAreaEl.setAttribute("loadedNote", e.target.id);
+    localStorage.setItem("curNoteID", e.target.id);
+    console.log(localStorage.curNoteID);
   }
   // Delete note
   if (bin) {

@@ -96,8 +96,6 @@ app.listen(PORT, () => {
 
 // REMAINING TASKS TO COMPLETE:
 //
-// Fix refresh bug - IN PROGRESS
-// New note created when pressing blank note|| Auto load last viewed note so it is never blank
 // Add date created/last modified
 // Search functionality
 // Separate Scrolls

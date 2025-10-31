@@ -8,7 +8,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "devStart": "nodemon server.js",
-    "css:build": "npx @tailwindcss/cli -i public/input.css -o public/output.css --watch"
+    "css:build": "npx @tailwindcss/cli -i public/input.css -o public/output.css --watch",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",

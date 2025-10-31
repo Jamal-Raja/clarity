@@ -55,7 +55,7 @@ app.post("/notes", async (req, res) => {
       res.json({ message: "Error Creating Note" });
       throw new Error();
     }
-    createNewNote(req.body);
+    await createNewNote(req.body);
     res.json({ message: `Note Created!`, note: req.body, id: req.id });
   } catch (err) {
     console.error(err);
@@ -98,8 +98,3 @@ app.delete("/notes/:id", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
-
-// REMAINING TASKS TO COMPLETE:
-// Styling
-// Separate Scrolls
-// Hover Bin Btn (shud hide natrually and appear on hover only)

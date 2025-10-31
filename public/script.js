@@ -50,7 +50,7 @@ async function ensureLoadedNote() {
 }
 
 // Initial setup of loadednotes
-ensureLoadedNote(); 
+ensureLoadedNote();
 // Initial Render of all notes
 loadNotes();
 // Load individual note into editor

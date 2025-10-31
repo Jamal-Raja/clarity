@@ -27,7 +27,7 @@ async function updateNote(updatedNote) {
 
 async function deleteNote(noteID) {
   const allNotes = await readNotes();
-  const updatedNotes = allNotes.filter((note) => note.id !== noteID);
+  const updatedNotes = allNotes.filter((note) => note.id != noteID);
   await fs.writeFile("./allData.json", JSON.stringify(updatedNotes, null, 2));
 }
 
@@ -96,8 +96,8 @@ app.listen(PORT, () => {
 
 // REMAINING TASKS TO COMPLETE:
 //
-// Add date created/last modified
 // Search functionality
+// Add date created/last modified
 // Separate Scrolls
 // Hover Bin Btn (shud hide natrually and appear on hover only)
 // Styling

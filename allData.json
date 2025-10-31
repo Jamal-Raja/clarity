@@ -1,5 +1,10 @@
 [
   {
+    "title": "Untitled Note",
+    "content": "changed",
+    "id": "1761916667191"
+  },
+  {
     "id": 1761861591433,
     "title": "REMAINING TASKS TO COMPLETE:",
     "content": "\nStyling \nLight/dark mode btn\nConvert to using dynamic routes\nHover Bin\nAdd date created/last modified \nSearch functionality\nSeparate Scrolls\n\n"
@@ -27,6 +32,6 @@
   {
     "id": 1761754854783,
     "title": "Remember to bring extra water next time 💧",
-    "content": "[CONTENT_IS_HERE]"
+    "content": "[CONTENT_IS_HERE]\n"
   }
 ]

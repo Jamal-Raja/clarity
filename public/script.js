@@ -133,13 +133,13 @@ document.getElementById("notesUl").addEventListener("click", (e) => {
     textAreaEl.value = "";
   }
 });
-// Debounce textarea input to prevent rapid PUT requests to allData.json
-let Timer;
+// Debounce textarea input to prevent rapid PUT requests to server
+let timer;
 
 textAreaEl.addEventListener("input", () => {
-  clearTimeout(Timer); // Reset timer on each keystroke
+  clearTimeout(timer); // Reset timer on each keystroke
 
-  Timer = setTimeout(() => {
+  timer = setTimeout(() => {
     const note = {
       title: textAreaEl.value.split("\n")[0],
       content: textAreaEl.value.split("\n").slice(1).join("\n"),
@@ -154,7 +154,6 @@ const savedTheme = localStorage.getItem("theme");
 if (savedTheme) {
   document.documentElement.setAttribute("data-theme", savedTheme);
 }
-
 document.querySelectorAll(".theme-controller").forEach((input) => {
   input.addEventListener("change", (e) => {
     const newTheme = e.target.value;

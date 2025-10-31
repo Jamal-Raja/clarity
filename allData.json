@@ -1,13 +1,13 @@
 [
   {
-    "title": "Untitled Noteasd",
-    "content": "asd",
-    "id": "1761924924749"
+    "title": "readme.md",
+    "content": "console.log(\"kys\")\nasd\nad\na\nsda\ns\nfaf\na\nfa\nsf\naf\nsa\ndfasfkoasakd dfasfkoasakddfasfkoasakd dfasfkoasakd dfasfkoasakd dfasfkoasakd dfasfkoasakd",
+    "id": 1761931156447
   },
   {
     "title": "REMAINING TASKS TO COMPLETE:",
-    "content": "\nStyling \nHover Bin\nAdd date created/last modified \nSearch functionality\nSeparate Scrolls\n",
-    "id": "1761861591433"
+    "content": "\nSearch functionality - IN PROGRESS\nStyling \nHover Bin\nAdd date created/last modified \nSeparate Scrolls\n",
+    "id": 1761861591433
   },
   {
     "id": 1761754839103,
@@ -16,8 +16,8 @@
   },
   {
     "title": "We love hiking 🥾",
-    "content": "[CONTENT_IS_HERE]",
-    "id": "1761754844591"
+    "content": "[CONTENT_IS_HERE]\nlol",
+    "id": 1761754844591
   },
   {
     "id": 1761754847600,
@@ -27,7 +27,7 @@
   {
     "title": "Captured some amazing sunset photos 🌅",
     "content": "[CONTENT_IS_HERE]",
-    "id": "1761754851022"
+    "id": 1761754851022
   },
   {
     "id": 1761754854783,

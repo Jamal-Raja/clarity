@@ -7,6 +7,7 @@ async function loadNotes() {
     const res = await fetch(`${URL}/notes`);
     if (!res.ok) throw new Error("Failed to fetch");
     const notes = await res.json();
+    textAreaEl.setAttribute("loadedNote", notes[0].id);
     const ulEl = document.getElementById("notesUl");
     ulEl.innerHTML = notes
       .map(
@@ -104,8 +105,6 @@ async function deleteNote(noteID) {
   }
 }
 
-document.getElementById("composeIcon").addEventListener("click", createNewNote);
-
 const currentNoteID = localStorage.getItem("curNoteID");
 if (!currentNoteID) {
   (async () => {
@@ -115,6 +114,7 @@ if (!currentNoteID) {
   })();
 } else loadNote(currentNoteID);
 
+document.getElementById("composeIcon").addEventListener("click", createNewNote);
 document.getElementById("notesUl").addEventListener("click", (e) => {
   const note = e.target.closest("a");
   const bin = e.target.closest("svg");
@@ -146,7 +146,7 @@ textAreaEl.addEventListener("input", () => {
       id: textAreaEl.getAttribute("loadedNote"),
     };
     updateNote(note); // Send update after typing stops
-  }, 200);
+  }, 300);
 });
 
 // Theme save

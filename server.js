@@ -17,6 +17,7 @@ async function createNewNote(noteObj) {
 }
 
 async function updateNote(updatedNote) {
+  updatedNote["id"] = Number(updatedNote["id"]);
   const allNotes = await readNotes();
   const updatedNotes = allNotes.map((note) => {
     if (note.id == updatedNote.id) return updatedNote;

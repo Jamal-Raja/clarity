@@ -5,14 +5,24 @@
     "id": 1761931156447
   },
   {
+    "title": "EDIT ME ",
+    "content": "\n- Edit Me To Test If Edit Function Works\n[] It will do, i checked ;)\n",
+    "id": 1761949118705
+  },
+  {
+    "title": "DELETE ME ",
+    "content": "\n- Delete Me To Test If Delete Function Works\n[] It will do, i checked ;)",
+    "id": 1761948452064
+  },
+  {
     "id": 1761861591433,
     "title": "🛠️ Remaining Tasks",
     "content": "- [x] Build note CRUD API\n- [x] Add auto-save debounce logic\n- [x] Add theme switcher with localStorage\n- [ ] Add search functionality\n- [ ] Improve hover delete (bin icon)\n- [ ] Display 'Created' and 'Last Modified' timestamps\n- [ ] Independent scroll for sidebar and editor"
   },
   {
-    "id": 1761754839103,
     "title": "I love nature 🌿",
-    "content": "Time in nature resets everything. The sound of wind through the trees, the slow rhythm of walking — it’s mindfulness without effort.\n\n> Next hike: explore the Snowdonia trails this weekend."
+    "content": "Time in nature resets everything. The sound of wind through the trees, the slow rhythm of walking — it’s mindfulness without effort.\n\n> Next hike: explore the Snowdonia trails this weekend.\n",
+    "id": 1761754839103
   },
   {
     "id": 1761754844591,

@@ -7,12 +7,17 @@ async function loadNotes() {
     const res = await fetch(`${URL}/notes`);
     if (!res.ok) throw new Error("Failed to fetch");
     const notes = await res.json();
-    textAreaEl.setAttribute("loadedNote", notes[0].id);
     const ulEl = document.getElementById("notesUl");
     ulEl.innerHTML = notes
       .map(
         (note) => `<li>
-                  <a id=${note.id} class="flex justify-between gap-0">${note.title} 
+                  <a id=${
+                    note.id
+                  } class="flex justify-between gap-0 max-w-full">${
+          note.title.length > 20
+            ? `${note.title.substring(0, 15)}...`
+            : note.title
+        } 
                   <button>
                     <svg class="min-w-4 min-h-4 w-4 h-4 fill-current hover:fill-red-500 animate-rotate-upside-down transition-transform duration-300 hover:rotate-180 active:scale-200" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
                       <path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z"></path>
@@ -26,6 +31,26 @@ async function loadNotes() {
     console.error(err);
   }
 }
+
+async function ensureLoadedNote() {
+  const res = await fetch(`${URL}/notes`);
+  const notes = await res.json();
+  if (notes.length === 0) return;
+  const savedID = localStorage.getItem("curNoteID");
+  let idToLoad = savedID;
+
+  if (!idToLoad) {
+    idToLoad = notes[0].id;
+    localStorage.setItem("curNoteID", idToLoad);
+  }
+
+  textAreaEl.setAttribute("loadedNote", idToLoad);
+
+  await loadNote(idToLoad);
+}
+
+// Initial setup of loadednotes
+ensureLoadedNote(); 
 // Initial Render of all notes
 loadNotes();
 // Load individual note into editor

@@ -17,12 +17,13 @@ async function createNewNote(noteObj) {
 }
 
 async function updateNote(updatedNote) {
-  updatedNote["id"] = Number(updatedNote["id"]);
   const allNotes = await readNotes();
-  const updatedNotes = allNotes.map((note) => {
-    if (note.id == updatedNote.id) return updatedNote;
-    else return note;
-  });
+
+  const updatedNotes = allNotes.map((note) =>
+    Number(note.id) === Number(updatedNote.id)
+      ? { ...note, ...updatedNote }
+      : note
+  );
   await fs.writeFile("./allData.json", JSON.stringify(updatedNotes, null, 2));
 }
 
@@ -63,21 +64,24 @@ app.post("/notes", async (req, res) => {
 // Update a note
 app.put("/notes/:id", async (req, res) => {
   try {
-    const noteRecieved = req.body["note"];
-    if (!noteRecieved) {
-      res.status(400).json({ message: "Error: Expected {id, title, content}" });
+    const noteReceived = req.body.note;
+    const id = Number(req.params.id);
+    if (!noteReceived || isNaN(id)) {
+      return res
+        .status(400)
+        .json({ message: "Error: Expected {id, title, content}" });
     }
-    const allNotes = await readNotes();
-    for (note of allNotes) {
-      if (note.id == req.params.id) {
-        updateNote(noteRecieved);
-      }
-    }
-    res.json({ message: "Note updated!", note: noteRecieved });
+    noteReceived.id = id;
+
+    await updateNote(noteReceived);
+
+    res.json({ message: "Note updated!", note: noteReceived });
   } catch (err) {
     console.error(err);
+    res.status(500).json({ message: "Internal server error" });
   }
 });
+
 // Delete a note
 app.delete("/notes/:id", async (req, res) => {
   try {

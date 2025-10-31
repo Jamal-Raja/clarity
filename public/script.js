@@ -7,7 +7,6 @@ async function loadNotes() {
     const res = await fetch(`${URL}/notes`);
     if (!res.ok) throw new Error("Failed to fetch");
     const notes = await res.json();
-
     const ulEl = document.getElementById("notesUl");
     ulEl.innerHTML = notes
       .map(
@@ -66,20 +65,16 @@ async function createNewNote() {
   }
 }
 // Update note
-async function updateNote(noteID, noteTitle, noteContent) {
+async function updateNote(note) {
   try {
-    const numericID = Number(noteID);
+    const numericID = Number(note.id);
     if (isNaN(numericID)) {
       throw new Error("Invalid note ID. Must be a number");
     }
-    const res = await fetch(`${URL}/notes`, {
+    const res = await fetch(`${URL}/notes/${numericID}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        id: numericID,
-        title: noteTitle,
-        content: noteContent,
-      }),
+      body: JSON.stringify({ note }),
     });
     loadNotes();
     if (!res.ok) throw new Error("Failed to fetch");
@@ -87,7 +82,6 @@ async function updateNote(noteID, noteTitle, noteContent) {
     console.error(err);
   }
 }
-
 // Delete note
 async function deleteNote(noteID) {
   try {
@@ -95,7 +89,7 @@ async function deleteNote(noteID) {
     if (isNaN(numericID)) {
       throw new Error("Invalid note ID. Must be a number");
     }
-    const res = await fetch(`${URL}/notes`, {
+    const res = await fetch(`${URL}/notes/${numericID}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -127,12 +121,14 @@ document.getElementById("notesUl").addEventListener("click", (e) => {
     textAreaEl.value = "";
   }
 });
+// Upon textarea input, input is sent as a put request to update allData.json
 textAreaEl.addEventListener("input", () => {
-  const title = textAreaEl.value.split("\n")[0];
-  const content = textAreaEl.value.split("\n").slice(1).join("\n");
-  const id = textAreaEl.getAttribute("loadedNote");
-
-  updateNote(id, title, content);
+  const note = {
+    title: textAreaEl.value.split("\n")[0],
+    content: textAreaEl.value.split("\n").slice(1).join("\n"),
+    id: textAreaEl.getAttribute("loadedNote"),
+  };
+  updateNote(note);
 });
 
 // Theme save

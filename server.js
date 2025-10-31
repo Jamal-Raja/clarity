@@ -16,13 +16,11 @@ async function createNewNote(noteObj) {
   await fs.writeFile("./allData.json", JSON.stringify(allNotes, null, 2));
 }
 
-async function updateNote(noteID, updatedNote) {
+async function updateNote(updatedNote) {
   const allNotes = await readNotes();
   const updatedNotes = allNotes.map((note) => {
-    if (note.id === noteID) {
-      return { ...updatedNote };
-    }
-    return note;
+    if (note.id == updatedNote.id) return updatedNote;
+    else return note;
   });
   await fs.writeFile("./allData.json", JSON.stringify(updatedNotes, null, 2));
 }
@@ -62,31 +60,30 @@ app.post("/notes", async (req, res) => {
   }
 });
 // Update a note
-app.put("/notes", async (req, res) => {
+app.put("/notes/:id", async (req, res) => {
   try {
-    if (!req.body) {
+    const noteRecieved = req.body["note"];
+    if (!noteRecieved) {
       res.status(400).json({ message: "Error: Expected {id, title, content}" });
     }
-    const { id } = req.body;
-    const noteToUpdateID = Number(id);
     const allNotes = await readNotes();
     for (note of allNotes) {
-      if (note.id == noteToUpdateID) {
-        updateNote(noteToUpdateID, req.body);
+      if (note.id == req.params.id) {
+        updateNote(noteRecieved);
       }
     }
-    res.json({ message: "Note updated!", note: req.body });
+    res.json({ message: "Note updated!", note: noteRecieved });
   } catch (err) {
     console.error(err);
   }
 });
 // Delete a note
-app.delete("/notes", async (req, res) => {
+app.delete("/notes/:id", async (req, res) => {
   try {
     if (!req.body) {
       res.status(400).json({ message: "Error: Expected {id}" });
     }
-    deleteNote(req.body.id);
+    deleteNote(req.params.id);
     res.json({ message: "Note Deleted!", note: req.body });
   } catch (err) {
     console.error(err);

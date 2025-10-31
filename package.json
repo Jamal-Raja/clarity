@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "author": "Jamal Raja",
+  "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "devStart": "nodemon server.js",
@@ -13,7 +15,6 @@
     "url": "git+https://github.com/Jamal-Raja/clarity.git"
   },
   "keywords": [],
-  "author": "Jamal Raja",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Jamal-Raja/clarity/issues"

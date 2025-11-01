@@ -1,5 +1,10 @@
 [
   {
+    "id": 1761995331125,
+    "title": "Another New Note! ",
+    "content": "lol\n"
+  },
+  {
     "title": "README.md 📘",
     "content": "# Welcome to Clarity ✨\n\nClarity is a clean, distraction-free note app built with **Express**, **Tailwind CSS v4**, and **DaisyUI**. It helps you capture ideas instantly — whether you’re coding, journalling, or planning your next adventure.\n\n## 🚀 Features\n- 🧠 Real-time auto-save while you type\n- 🔍 Search and filter through notes (coming soon)\n- 🧹 Delete notes with one click (hover bin icon)\n- 🎨 Personalise your theme with built-in DaisyUI options\n- 📅 Notes store creation and last modified timestamps (planned)\n\n## 🧩 Tech Stack\n- **Frontend:** TailwindCSS v4, DaisyUI, JavaScript (vanilla)\n- **Backend:** Node.js (Express 5)\n- **Storage:** JSON-based local persistence\n\n## 💡 Usage\n1. Click **+ Compose** to create a new note.\n2. Start typing — your work auto-saves.\n3. Click a note on the left to load it instantly.\n\n> Tip: Keep your first line short — it becomes your note’s title automatically!\n\n---\n\nMade with <3 by **Jamal Raja**",
     "id": 1761931156447
@@ -42,6 +47,6 @@
   {
     "id": 1761754854783,
     "title": "Bring extra water next time 💧",
-    "content": "Lesson learned — two bottles aren’t enough on a 12km hike. Add this to the gear checklist for next time!"
+    "content": "Lesson learned — two bottles aren’t enough on a 12km hike. Add this to the gear checklist for next time!\n"
   }
 ]

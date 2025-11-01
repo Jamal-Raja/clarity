@@ -3,6 +3,9 @@
 Clarity is a clean, distraction-free note-taking web app built with **Express**, **Tailwind CSS v4**, and **DaisyUI**.  
 It helps you capture, edit, and manage your thoughts instantly — whether you’re coding, journaling, or planning your next adventure.
 
+- <a href="https://clarity-7op9.onrender.com/">Live App</a>
+- <a href="https://github.com/Jamal-Raja/clarity.git">Github Repo</a>
+
 ---
 
 ## 🧩 Tech Stack

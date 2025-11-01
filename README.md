@@ -5,6 +5,17 @@ It helps you capture, edit, and manage your thoughts instantly — whether you�
 
 ---
 
+## 🧩 Tech Stack
+
+| **Layer** | **Technology** |
+|------------|----------------|
+| **Frontend** | ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-thebadge&logo=javascript&logoColor=black) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white) ![DaisyUI](https://img.shields.io/badge/DaisyUI-5A0EF8?style=for-the-badge&logo=daisyui&logoColor=white) |
+| **Backend** | ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white) ![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white) |
+| **Storage** | ![JSON](https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white) |
+| **Runtime Tools** | ![Nodemon](https://img.shields.io/badge/Nodemon-76D04B?style=for-the-badge&logo=nodemon&logoColor=white) ![Tailwind CLI](https://img.shields.io/badge/Tailwind_CLI-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white) |
+
+---
+
 ## Features
 
 - 🧠 **Real-time auto-save** as you type  
@@ -13,19 +24,6 @@ It helps you capture, edit, and manage your thoughts instantly — whether you�
 - 📑 **Dynamic note list** auto-refreshes after every update  
 - 🧭 **Lightweight JSON storage** — no database required  
 - 🔍 **Planned:** Search, filter, and timestamp tracking
-
----
-
-
-
-## 🧩 Tech Stack
-
-| **Layer** | **Technology** |
-|------------|----------------|
-| **Frontend** | ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white) ![DaisyUI](https://img.shields.io/badge/DaisyUI-5A0EF8?style=for-the-badge&logo=daisyui&logoColor=white) |
-| **Backend** | ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white) ![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white) |
-| **Storage** | ![JSON](https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white) |
-| **Runtime Tools** | ![Nodemon](https://img.shields.io/badge/Nodemon-76D04B?style=for-the-badge&logo=nodemon&logoColor=white) ![Tailwind CLI](https://img.shields.io/badge/Tailwind_CLI-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white) |
 
 ---
 
@@ -79,6 +77,6 @@ Clarity/
 | PUT         | `/notes/:id`   | Update an existing note  |
 | DELETE      | `/notes/:id`   | Delete a note            |
 
-💙 Made with passion by **Jamal Raja**: https://github.com/Jamal-Raja
+Made with passion by **Jamal Raja**: https://github.com/Jamal-Raja
 
 “See your thoughts take shape.”

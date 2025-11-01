@@ -1,4 +1,4 @@
-const URL = "http://localhost:3000";
+const URL = "";
 const textAreaEl = document.getElementById("textArea");
 const themeToggle = document.getElementById("themeToggle");
 // Load all notes

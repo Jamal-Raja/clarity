@@ -5,7 +5,6 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
 const dataPath = path.join(__dirname, "allData.json");
-console.log("🔍 Looking for JSON at:", dataPath);
 fs.access(dataPath)
   .then(() => console.log("✅ allData.json found"))
   .catch(() => console.log("❌ allData.json missing!"));

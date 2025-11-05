@@ -6,8 +6,8 @@
   },
   {
     "title": "EDIT ME ",
-    "content": "\nHere is my changes!!!\n",
-    "id": 1761949118705
+    "content": "\n- Edit Me To Test If Edit Function Works\n[X] It will do, i checked ;)\n",
+    "id": "1761949118705"
   },
   {
     "title": "DELETE ME ",
